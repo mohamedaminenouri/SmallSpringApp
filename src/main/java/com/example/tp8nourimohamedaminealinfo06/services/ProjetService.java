@@ -14,5 +14,5 @@ public interface ProjetService {
   void  UnassignProjetDetailToProjet(Long projetid);
   void assignProjetToEquipe(Long projetId, Long  EquipeId);
   void assingProjetDetailToNewProjet(Long projetDetail,Projet p);
-void  UnassignProjetFromEquipe(Long projetId,Long equipeId);
+  void  UnassignProjetFromEquipe(Long projetId,Long equipeId);
 }

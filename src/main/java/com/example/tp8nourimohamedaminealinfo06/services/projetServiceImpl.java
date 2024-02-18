@@ -7,6 +7,8 @@ import com.example.tp8nourimohamedaminealinfo06.repsository.EquipeRepository;
 import com.example.tp8nourimohamedaminealinfo06.repsository.ProjetDetailRepository;
 import com.example.tp8nourimohamedaminealinfo06.repsository.ProjetRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.Set;
 // le AllArgsConstructor elle remplace le Autowired
 @Service
 @AllArgsConstructor
+@Slf4j
 public class projetServiceImpl implements ProjetService {
     ProjetRepository projetRepository;
     ProjetDetailRepository projetDetailRepository;
@@ -29,10 +32,15 @@ public class projetServiceImpl implements ProjetService {
     public Projet getById(Long id) {
         return projetRepository.findById(id).get();
     }
-
+ // pour executer cette méthode pour chaque 10000 s
+    @Scheduled(fixedRate = 10000)
+  //  @Scheduled(fixedDelay = 10000) apres le finir de la derniere instruction
     @Override
     public List<Projet> getAll() {
-        return projetRepository.findAll();
+        List<Projet> projets=projetRepository.findAll();
+        log.info(" nbre projet  :"+projets.size());
+
+        return projets;
     }
 
     @Override

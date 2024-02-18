@@ -5,6 +5,7 @@ import com.example.tp8nourimohamedaminealinfo06.services.ProjetService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 @RequestMapping("/projet")
 public class ProjetController {
      ProjetService projetService;
+
     @GetMapping("/retrieve-all-projets")
     public List<Projet> getProjets() {
         List<Projet> listProjets = projetService.getAll();
